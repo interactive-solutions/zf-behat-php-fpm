@@ -5,7 +5,7 @@ Provides a dead simple php-fpm container for docker that supports the basic Zf2 
 
 ## Usage 
 
-In your `docker-compose.yml` add a section for php
+In your `docker-compose.yml` add a section for php and mount the current workspace into the `/var/www/html` folder.
 
 ```
 php:
