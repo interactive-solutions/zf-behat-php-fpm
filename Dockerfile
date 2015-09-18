@@ -12,6 +12,7 @@ RUN docker-php-ext-install apcu mbstring pdo_mysql zip opcache intl
 
 # Configure the timezone
 RUN echo "date.timezone = Europe/Stockholm" > /usr/local/etc/php/php.ini
+RUN echo "memory_limit = 512M" > /usr/local/etc/php/php.ini
 
 # Mark as volume
 VOLUME /var/www/html
