@@ -5,7 +5,7 @@ MAINTAINER Antoine Hedgecock <antoine.hedgecock@gmail.com>
 RUN apt-get update && apt-get install -y git zlib1g-dev libcurl4-openssl-dev libicu-dev && apt-get clean
 
 # # Download apcu
-RUN git clone https://github.com/krakjoe/apcu.git /usr/src/php/ext/apcu
+RUN git clone -b v4.0.8 https://github.com/krakjoe/apcu.git /usr/src/php/ext/apcu
 
 # Download and extract redis
 RUN curl -L -o /tmp/redis.tar.gz https://github.com/phpredis/phpredis/archive/2.2.7.tar.gz \
