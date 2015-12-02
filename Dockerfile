@@ -8,7 +8,7 @@ RUN apt-get update && apt-get install -y git zlib1g-dev libcurl4-openssl-dev lib
 RUN git clone https://github.com/krakjoe/apcu.git /usr/src/php/ext/apcu
 
 # Install the required extensions
-RUN docker-php-ext-install apcu mbstring pdo_mysql zip opcache intl bcmath
+RUN docker-php-ext-install apcu mbstring pdo_mysql zip opcache intl bcmath redis
 
 # Configure the timezone
 RUN echo "date.timezone = Europe/Stockholm" > /usr/local/etc/php/php.ini
