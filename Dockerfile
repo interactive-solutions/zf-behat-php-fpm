@@ -7,6 +7,12 @@ RUN apt-get update && apt-get install -y git zlib1g-dev libcurl4-openssl-dev lib
 # # Download apcu
 RUN git clone https://github.com/krakjoe/apcu.git /usr/src/php/ext/apcu
 
+# Download and extract redis
+RUN curl -L -o /tmp/redis.tar.gz https://github.com/phpredis/phpredis/archive/2.2.7.tar.gz \
+    && tar xfz /tmp/redis.tar.gz \
+    && rm -r /tmp/redis.tar.gz \
+    && mv phpredis-2.2.7 /usr/src/php/ext/redis
+
 # Install the required extensions
 RUN docker-php-ext-install apcu mbstring pdo_mysql zip opcache intl bcmath redis
 
