@@ -13,10 +13,11 @@ RUN curl -L -o /tmp/redis.tar.gz https://github.com/phpredis/phpredis/archive/ph
 # Install the required extensions
 RUN docker-php-ext-install mbstring pdo_mysql zip opcache intl bcmath redis
 
-# Configure the timezone
+# Do some basic configuration
 RUN echo "date.timezone = Europe/Stockholm" > /usr/local/etc/php/php.ini
 RUN echo "memory_limit = 512M" >> /usr/local/etc/php/php.ini
-
+RUN echo "upload_max_filesize = 10M" >> /usr/local/etc/php/php.ini
+ 
 # Mark as volume
 VOLUME /var/www/html
 
