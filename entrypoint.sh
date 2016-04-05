@@ -1,6 +1,6 @@
 #!/bin/bash
 
 # Make the data directly writeable
-chown -hR www-data:www-data data/
+chmod -r 777 data/
 
 exec "$@"
