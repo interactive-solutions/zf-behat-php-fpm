@@ -11,7 +11,7 @@ RUN curl -L -o /tmp/redis.tar.gz https://github.com/phpredis/phpredis/archive/ph
     && mv phpredis-php7 /usr/src/php/ext/redis
 
 # Install the required extensions
-RUN docker-php-ext-install mbstring pdo_mysql zip opcache intl bcmath redis
+RUN docker-php-ext-install mbstring pdo_pgsql pdo_mysql zip opcache intl bcmath redis
 
 # Do some basic configuration
 RUN echo "date.timezone = Europe/Stockholm" > /usr/local/etc/php/php.ini
