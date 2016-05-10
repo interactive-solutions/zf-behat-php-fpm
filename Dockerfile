@@ -2,7 +2,7 @@ FROM php:7-fpm
 MAINTAINER Antoine Hedgecock <antoine.hedgecock@gmail.com>
 
 # Get the latest version
-RUN apt-get update && apt-get install -y git zlib1g-dev libcurl4-openssl-dev libicu-dev && apt-get clean
+RUN apt-get update && apt-get install -y git zlib1g-dev libcurl4-openssl-dev libicu-dev postgresql-server-dev-all && apt-get clean
 
 # Download and extract redis
 RUN curl -L -o /tmp/redis.tar.gz https://github.com/phpredis/phpredis/archive/php7.tar.gz \
