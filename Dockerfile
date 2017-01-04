@@ -8,6 +8,7 @@ RUN apt-get update && apt-get install -y git zlib1g-dev libcurl4-openssl-dev lib
 RUN curl -L -o /tmp/redis.tar.gz https://github.com/phpredis/phpredis/archive/php7.tar.gz \
     && tar xfz /tmp/redis.tar.gz \
     && rm -r /tmp/redis.tar.gz \
+    && mkdir -p /usr/src/php/ext \
     && mv phpredis-php7 /usr/src/php/ext/redis
 
 # Install the required extensions
