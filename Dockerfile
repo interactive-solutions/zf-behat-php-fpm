@@ -1,15 +1,15 @@
-FROM php:7.1-fpm
+FROM php:7.2-fpm
 MAINTAINER Antoine Hedgecock <antoine.hedgecock@gmail.com>
 
 # Get the latest version
 RUN apt-get update && apt-get install -y git zlib1g-dev libcurl4-openssl-dev libicu-dev postgresql-server-dev-all && apt-get clean
 
 # Download and extract redis
-RUN curl -L -o /tmp/redis.tar.gz https://github.com/phpredis/phpredis/archive/php7.tar.gz \
+RUN curl -L -o /tmp/redis.tar.gz https://github.com/phpredis/phpredis/archive/3.1.5.tar.gz \
     && tar xfz /tmp/redis.tar.gz \
     && rm -r /tmp/redis.tar.gz \
     && mkdir -p /usr/src/php/ext \
-    && mv phpredis-php7 /usr/src/php/ext/redis
+    && mv phpredis-3.1.5 /usr/src/php/ext/redis
 
 # Install the required extensions
 RUN docker-php-ext-install mbstring pdo_pgsql pdo_mysql zip opcache intl bcmath redis

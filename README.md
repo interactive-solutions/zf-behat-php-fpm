@@ -9,7 +9,7 @@ In your `docker-compose.yml` add a section for php and mount the current workspa
 
 ```
 php:
-    image: interactivesolutions/zf-php-fpm:latest
+    image: interactivesolutions/zf-php-fpm:7.2
     links:
         - mysql
     volumes:
