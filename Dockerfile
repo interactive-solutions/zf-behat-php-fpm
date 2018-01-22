@@ -25,6 +25,8 @@ VOLUME /var/www/html
 # Change the work dir to it
 WORKDIR /var/www/html
 
+ADD ./wait-for-it.sh /usr/bin/wait-for-it.sh
+
 # Install the entrypoint
 COPY entrypoint.sh /entrypoint.sh
 
