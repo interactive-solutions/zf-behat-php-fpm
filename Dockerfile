@@ -1,8 +1,8 @@
-FROM php:7.2-fpm
+FROM php:7.3-fpm
 MAINTAINER Antoine Hedgecock <antoine.hedgecock@gmail.com>
 
 # Get the latest version
-RUN apt-get update && apt-get install -y git zlib1g-dev libcurl4-openssl-dev libicu-dev postgresql-server-dev-all && apt-get clean
+RUN apt-get update && apt-get install -y git zlib1g-dev libcurl4-openssl-dev libicu-dev postgresql-server-dev-all libzip-dev && apt-get clean
 
 # Download and extract redis
 RUN curl -L -o /tmp/redis.tar.gz https://github.com/phpredis/phpredis/archive/3.1.5.tar.gz \
@@ -13,6 +13,8 @@ RUN curl -L -o /tmp/redis.tar.gz https://github.com/phpredis/phpredis/archive/3.
 
 # Install the required extensions
 RUN docker-php-ext-install mbstring pdo_pgsql pdo_mysql zip opcache intl bcmath redis
+RUN pecl install apcu
+RUN docker-php-ext-enable apcu
 
 # Do some basic configuration
 RUN echo "date.timezone = Europe/Stockholm" > /usr/local/etc/php/php.ini
